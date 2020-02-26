@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  myexampleapp:
+    container_name: myexampleapp
+    image: myexampleapp:latest
+    build:
+      context: .
+      dockerfile: image/Dockerfile
+    environment:
+      - PORT=3000
+    ports:
+      - "3000:3000"
