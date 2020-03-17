@@ -7,6 +7,8 @@ services:
     build:
       context: .
       dockerfile: image/Dockerfile
+    volumes:
+      - "/var/myexampleapp/tmp:/app/tmp"
     environment:
       - PORT=3000
     ports:
