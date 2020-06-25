@@ -1,14 +1,15 @@
-version: '3.4'
+version: '2.4'
 
 services:
-  myexampleapp:
-    container_name: myexampleapp
-    image: myexampleapp:latest
+
+  docker-tutorial-app:
+    container_name: docker-tutorial-app-c
+    image: registry.cn-shanghai.aliyuncs.com/leon-pu/leon-docker-learn:latest
     build:
       context: .
       dockerfile: image/Dockerfile
     volumes:
-      - "/var/myexampleapp/tmp:/app/tmp"
+      - "/var/docker-tutorial-app/tmp:/app/tmp"
     environment:
       - PORT=3000
     ports:
