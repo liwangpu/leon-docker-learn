@@ -1,16 +1,12 @@
-version: '2.4'
+version: '3.5'
 
 services:
 
-  docker-tutorial-app:
-    container_name: docker-tutorial-app-c
-    image: registry.cn-shanghai.aliyuncs.com/leon-pu/leon-docker-learn:latest
+  docker-learn-app1:
+    container_name: docker-learn-app1-c
+    image: docker-learn-app1:latest
     build:
       context: .
-      dockerfile: image/Dockerfile
-    volumes:
-      - "/var/docker-tutorial-app/tmp:/app/tmp"
-    environment:
-      - PORT=3000
+      dockerfile: ./packages/app1/Dockerfile
     ports:
-      - "3000:3000"
+      - 8301:80
