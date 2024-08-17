@@ -1,12 +1,13 @@
 version: '3.5'
 
 services:
-
-  docker-learn-app1:
-    container_name: docker-learn-app1-c
-    image: docker-learn-app1:latest
+  
+  simple-httpserver:
+    container_name: simple-httpserver-c
+    image: simple-httpserver:latest
     build:
       context: .
-      dockerfile: ./packages/app1/Dockerfile
+      dockerfile: ./simple-httpserver/Dockerfile
     ports:
-      - 8301:80
+      - 8090:8090
+    restart: always
