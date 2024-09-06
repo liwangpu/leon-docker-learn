@@ -2,7 +2,7 @@ FROM node:18.20.4-alpine as builder
 
 WORKDIR /var/builderapp
 
-COPY ./simple-httpserver/. .
+COPY . .
 
 RUN yarn -v
 RUN yarn install

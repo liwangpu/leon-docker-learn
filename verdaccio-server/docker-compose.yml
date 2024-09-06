@@ -1,0 +1,37 @@
+version: '3.5'
+
+networks:
+  verdaccio-test:
+    driver: bridge
+
+services:
+
+  package-app:
+    container_name: package-app-c
+    image: package-app:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8090:8090
+    restart: always
+    depends_on:
+      - verdaccio
+    networks:
+      - verdaccio-test
+
+  verdaccio:
+    image: verdaccio/verdaccio
+    container_name: docker-verdaccio-c
+    environment:
+      VERDACCIO_PORT: 10104
+    ports:
+      - "10104:10104"
+    # volumes:
+    #   - ./verdaccio/conf:/verdaccio/conf
+    #   - ./verdaccio/storage:/verdaccio/storage
+    #   - ./verdaccio/plugins:/verdaccio/plugins
+    restart: always
+    networks:
+      - verdaccio-test
+    
